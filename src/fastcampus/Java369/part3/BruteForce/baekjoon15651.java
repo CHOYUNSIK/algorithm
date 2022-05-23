@@ -40,7 +40,7 @@ public class baekjoon15651 {
 
                 dfs(k+1);
 
-                //selected[k] = 0;
+                selected[k] = 0;
 
             }
         }
