@@ -27,7 +27,7 @@ public class baekjoon1182 {
 
         dfs(1, 0);
 
-        if (S == 0){
+        if (S == 0) {
             result--;
         }
 

@@ -29,7 +29,7 @@ public class baekjoon9663 {
         } else {
             for (int i = 1; i <= N; i++) {
 
-                if(check(x,i)){
+                if (check(x, i)) {
                     map[x] = i;
 
                     dfs(x + 1);
@@ -43,14 +43,14 @@ public class baekjoon9663 {
     }
 
     public static boolean check(int x, int y) {
-        for(int i = 1;  i <= x-1 ; i++){
-            if(y == map[i]){
+        for (int i = 1; i <= x - 1; i++) {
+            if (y == map[i]) {
                 return false;
             }
-            if(x - y == i - map[i]){
+            if (x - y == i - map[i]) {
                 return false;
             }
-            if(x + y == i + map[i]){
+            if (x + y == i + map[i]) {
                 return false;
             }
         }
