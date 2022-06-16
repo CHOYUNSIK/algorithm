@@ -29,7 +29,7 @@ public class baekjoon15970 {
 
         N = Integer.parseInt(br.readLine());
 
-        lists = new ArrayList[N+1];
+        lists = new ArrayList[N + 1];
 
         for (int i = 1; i <= N; i++) {
             lists[i] = new ArrayList<Integer>();

@@ -9,7 +9,6 @@ import java.util.StringTokenizer;
 public class baekjoon11652 {
 
 
-
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -29,13 +28,13 @@ public class baekjoon11652 {
         int currentCount = 1;
 
         for (int i = 1; i < N; i++) {
-            if(numbers[i-1] == numbers[i]){
+            if (numbers[i - 1] == numbers[i]) {
                 currentCount++;
-            }else {
+            } else {
                 currentCount = 1;
             }
 
-            if(currentCount > modeCount){
+            if (currentCount > modeCount) {
                 mode = numbers[i];
                 modeCount = currentCount;
             }

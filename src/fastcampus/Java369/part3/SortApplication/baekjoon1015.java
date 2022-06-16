@@ -21,10 +21,9 @@ public class baekjoon1015 {
 
         @Override
         public int compareTo(NumberIdx o) {
-            return  this.num - o.num;
+            return this.num - o.num;
         }
     }
-
 
 
     public static void main(String[] args) throws IOException {
@@ -42,14 +41,14 @@ public class baekjoon1015 {
         }
 
         Arrays.sort(B);
-        
+
         for (int i = 0; i < N; i++) {
             P[B[i].idx] = i;
         }
 
 
         for (int i = 0; i < N; i++) {
-            System.out.print(P[i]+" ");
+            System.out.print(P[i] + " ");
         }
 
     }

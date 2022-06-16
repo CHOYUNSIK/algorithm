@@ -19,14 +19,13 @@ public class baekjoon1181 {
         @Override
         public int compareTo(Word o) {
 
-            if(this.name.length() != o.name.length()) {
+            if (this.name.length() != o.name.length()) {
                 return this.name.length() - o.name.length();
             }
 
-            return  name.compareTo(o.name);
+            return name.compareTo(o.name);
         }
     }
-
 
 
     public static void main(String[] args) throws IOException {
