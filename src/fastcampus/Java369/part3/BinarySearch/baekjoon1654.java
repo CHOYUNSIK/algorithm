@@ -46,7 +46,7 @@ public class baekjoon1654 {
     static boolean crop(long H) {
         int count = 0;
         for (int i = 1; i <= K; i++) {
-                count +=  X[i] / H ;
+            count += X[i] / H;
         }
         return count >= N;
     }

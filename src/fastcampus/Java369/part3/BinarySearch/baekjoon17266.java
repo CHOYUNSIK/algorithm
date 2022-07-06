@@ -47,9 +47,9 @@ public class baekjoon17266 {
         int last = 0;
 
         for (int i = 1; i <= M; i++) {
-            if(X[i] - last <= mid){
+            if (X[i] - last <= mid) {
                 last = X[i] + mid;
-            }else{
+            } else {
                 return false;
             }
 

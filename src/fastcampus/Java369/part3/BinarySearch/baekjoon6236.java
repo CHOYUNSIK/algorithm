@@ -45,12 +45,12 @@ public class baekjoon6236 {
 
         int count = 1, sum = 0;
 
-        for(int i = 1; i <= N; i++){
-            if(sum + X[i] > mid){
+        for (int i = 1; i <= N; i++) {
+            if (sum + X[i] > mid) {
                 count++;
                 sum = X[i];
-            }else {
-                sum+= X[i];
+            } else {
+                sum += X[i];
             }
         }
 

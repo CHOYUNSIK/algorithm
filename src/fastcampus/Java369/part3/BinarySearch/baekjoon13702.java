@@ -41,13 +41,13 @@ public class baekjoon13702 {
 
     private static boolean alcoholDistribution(long mid) {
 
-        if(mid == 0 ){
+        if (mid == 0) {
             return false;
         }
 
         int sum = 0;
-        for(int i = 1; i <= N; i++){
-            sum += X[i]/mid;
+        for (int i = 1; i <= N; i++) {
+            sum += X[i] / mid;
         }
         return sum >= K;
     }

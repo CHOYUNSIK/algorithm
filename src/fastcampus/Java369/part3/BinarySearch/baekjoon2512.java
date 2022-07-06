@@ -45,9 +45,9 @@ public class baekjoon2512 {
 
         int sum = 0;
         for (int i = 1; i <= N; i++) {
-            if(X[i] <= mid ){
+            if (X[i] <= mid) {
                 sum += X[i];
-            }else{
+            } else {
                 sum += mid;
             }
         }

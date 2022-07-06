@@ -1,6 +1,5 @@
 package fastcampus.Java369.part3.BinarySearch;
 
-import javax.swing.plaf.IconUIResource;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -51,11 +50,11 @@ public class baekjoon2110 {
         int cnt = 1;
 
         for (int i = 2; i <= N; i++) {
-            if(X[i] - last < mid) continue;
+            if (X[i] - last < mid) continue;
             last = X[i];
             cnt++;
         }
-        return  cnt >= C;
+        return cnt >= C;
     }
 
 
