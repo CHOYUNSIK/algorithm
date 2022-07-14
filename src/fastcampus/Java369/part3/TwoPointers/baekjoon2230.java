@@ -31,7 +31,7 @@ public class baekjoon2230 {
 
             while (R + 1 <= N && a[R] - a[L] < M) ++R;
 
-            if(a[R] - a[L] >= M) result = Math.min(result, a[R] - a[L]);
+            if (a[R] - a[L] >= M) result = Math.min(result, a[R] - a[L]);
 
         }
 
