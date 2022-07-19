@@ -26,13 +26,13 @@ public class baekjoon2470 {
         int resultL = 0, resultR = 0;
 
         while (L < R) {
-            if (result > Math.abs(a[R] + a[L]) ) {
+            if (result > Math.abs(a[R] + a[L])) {
                 result = Math.abs(a[R] + a[L]);
                 resultL = a[L];
                 resultR = a[R];
             }
 
-            if(a[L] + a[R] > 0) R--;
+            if (a[L] + a[R] > 0) R--;
             else L++;
 
         }

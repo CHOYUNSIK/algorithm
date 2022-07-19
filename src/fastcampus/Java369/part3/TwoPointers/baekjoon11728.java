@@ -34,8 +34,8 @@ public class baekjoon11728 {
         StringBuilder sb = new StringBuilder();
         int L = 1, R = 1;
 
-        while(L <= N && R <= M){
-            if(A[L] < B[R]) sb.append(A[L++]).append(" ");
+        while (L <= N && R <= M) {
+            if (A[L] < B[R]) sb.append(A[L++]).append(" ");
             else sb.append(B[R++]).append(" ");
         }
 

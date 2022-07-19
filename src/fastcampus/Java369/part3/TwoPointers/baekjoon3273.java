@@ -34,7 +34,7 @@ public class baekjoon3273 {
             }
             if (X <= sum) {
                 R--;
-            }else {
+            } else {
                 L++;
             }
         }
@@ -44,3 +44,4 @@ public class baekjoon3273 {
 
     }
 }
+
