@@ -39,7 +39,6 @@ public class baekjoon2473 {
                     v2 = a[L];
                     v3 = a[R];
                 }
-                
                 if (target < a[L] + a[R]) {
                     R--;
                 } else {
