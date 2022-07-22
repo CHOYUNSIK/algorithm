@@ -4,7 +4,9 @@ package fastcampus.Java369.part3.GraphAndSearch;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
 public class baekjoon1260_matrix {
 
@@ -54,12 +56,12 @@ public class baekjoon1260_matrix {
         queue.add(v);
         visited[v] = true;
 
-        while (!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             int x = queue.poll();
             sb.append(x).append(' ');
 
-            for(int y = 1; y <= N; y++){
-                if (graph[x][y] == 0)  continue;
+            for (int y = 1; y <= N; y++) {
+                if (graph[x][y] == 0) continue;
                 if (visited[y]) continue;
                 queue.add(y);
                 visited[y] = true;
