@@ -44,10 +44,9 @@ public class baekjoon2667_DFS {
 
         System.out.println(result.size());
 
-        for(int x : result){
+        for (int x : result) {
             System.out.println(x);
         }
-
 
 
     }
@@ -62,7 +61,7 @@ public class baekjoon2667_DFS {
             int nextY = y + move[i][1];
             if (0 > nextX || 0 > nextY || nextX >= N || nextY >= N) continue;
 
-            if(visited[nextX][nextY]) continue;
+            if (visited[nextX][nextY]) continue;
 
             if (graph[nextX][nextY] == 1) {
                 dfs2667(nextX, nextY);
