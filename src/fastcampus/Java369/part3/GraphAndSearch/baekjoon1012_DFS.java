@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 
 public class baekjoon1012_DFS {
 
-    static int T, N, M, K ,count;
+    static int T, N, M, K, count;
     static int[][] graph;
     static boolean[][] visited;
 
@@ -39,7 +39,7 @@ public class baekjoon1012_DFS {
             for (int x = 0; x < N; x++) {
                 for (int y = 0; y < M; y++) {
 
-                    if (graph[x][y] == 1 && !visited[x][y]){
+                    if (graph[x][y] == 1 && !visited[x][y]) {
                         count++;
                         dfs1012(x, y);
                     }
@@ -67,7 +67,7 @@ public class baekjoon1012_DFS {
             if (nextX < 0 || nextY < 0 || nextY >= M || nextX >= N) continue;
             if (visited[nextX][nextY]) continue;
 
-            if(graph[nextX][nextY] == 1){
+            if (graph[nextX][nextY] == 1) {
                 dfs1012(nextX, nextY);
             }
 

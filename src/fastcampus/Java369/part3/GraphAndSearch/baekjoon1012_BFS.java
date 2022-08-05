@@ -72,11 +72,11 @@ public class baekjoon1012_BFS {
                 int nx = curX + move[i][0];
                 int ny = curY + move[i][1];
 
-                if(nx < 0 || ny < 0 || nx >= N || ny >= M) continue;
-                if(visited[nx][ny]) continue;
-                if(graph[nx][ny] == 0) continue;
+                if (nx < 0 || ny < 0 || nx >= N || ny >= M) continue;
+                if (visited[nx][ny]) continue;
+                if (graph[nx][ny] == 0) continue;
 
-                queue.add(new int[]{nx,ny});
+                queue.add(new int[]{nx, ny});
                 visited[nx][ny] = true;
 
             }

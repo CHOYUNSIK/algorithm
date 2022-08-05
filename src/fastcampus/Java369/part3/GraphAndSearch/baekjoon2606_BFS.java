@@ -45,14 +45,14 @@ public class baekjoon2606_BFS {
     private static void bfs2606(int i) {
         Queue<Integer> queue = new LinkedList<>();
         queue.offer(i);
-        visited[i]= true;
+        visited[i] = true;
 
-        while (!queue.isEmpty()){
+        while (!queue.isEmpty()) {
 
             int cur = queue.poll();
 
-            for (int x : graph[cur]){
-                if(visited[x]) continue;
+            for (int x : graph[cur]) {
+                if (visited[x]) continue;
                 queue.offer(x);
                 visited[x] = true;
                 count++;
