@@ -59,7 +59,7 @@ public class baekjoon11725_DFS {
 
         visited[start] = true;
 
-        for(int y : graph[start]){
+        for (int y : graph[start]) {
             if (visited[y]) continue;
             parent[y] = start;
             dfs11725(y);
