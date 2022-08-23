@@ -8,7 +8,6 @@ import java.util.StringTokenizer;
 
 public class baekjoon20364 {
 
-    static int N, Q;
     static boolean[] state;
 
     public static void main(String[] args) throws IOException {
