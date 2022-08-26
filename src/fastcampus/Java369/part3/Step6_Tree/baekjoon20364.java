@@ -27,7 +27,7 @@ public class baekjoon20364 {
             int y = x;
             int result = 0;
 
-            while (x > 0){
+            while (x > 0) {
                 if (state[x]) result = x;
                 x >>= 1;
             }

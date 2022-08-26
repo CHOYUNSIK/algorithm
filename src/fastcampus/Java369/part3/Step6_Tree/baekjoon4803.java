@@ -58,8 +58,6 @@ public class baekjoon4803 {
             }
 
 
-
-
             sb.append("Case ").append(++testcase).append(": ");
 
             if (result == 0) {
