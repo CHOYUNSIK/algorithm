@@ -4,10 +4,7 @@ package fastcampus.Java369.part3.Step06_TopologicalSort;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class baekjoon2623 {
 
@@ -48,7 +45,7 @@ public class baekjoon2623 {
 
     private static void bfs2623() {
 
-        Queue<Integer> queue = new LinkedList<>();
+        Deque<Integer> queue = new LinkedList<>();
 
         for (int i = 1; i <= N; i++) {
             if (indeg[i] == 0) {
