@@ -49,15 +49,15 @@ public class baekjoon2252 {
     private static void bfs2252() {
         Queue<Integer> queue = new LinkedList<>();
 
-        for (int i = 1; i <= N; i++){
+        for (int i = 1; i <= N; i++) {
             if (indeg[i] == 0) queue.add(i);
         }
 
-        while (!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             int cur = queue.poll();
             sb.append(cur).append(" ");
 
-            for (int y : graph[cur]){
+            for (int y : graph[cur]) {
                 indeg[y]--;
                 if (indeg[y] == 0) queue.add(y);
             }
