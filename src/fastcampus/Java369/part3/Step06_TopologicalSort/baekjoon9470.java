@@ -58,7 +58,7 @@ public class baekjoon9470 {
 
 
         for (int i = 1; i <= M; i++) {
-            if (indeg[i] == 0){
+            if (indeg[i] == 0) {
                 queue.add(i);
                 order[i] = maxCnt[i] = 1;
             }
