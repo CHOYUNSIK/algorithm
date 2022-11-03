@@ -27,7 +27,7 @@ public class baekjoon2579 {
         Dy[1][0] = 0;
         Dy[1][1] = score[1];
 
-        if (N >= 2){
+        if (N >= 2) {
             Dy[2][0] = score[2];
             Dy[2][1] = score[1] + score[2];
         }

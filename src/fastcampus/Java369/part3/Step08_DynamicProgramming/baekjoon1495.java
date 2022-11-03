@@ -40,7 +40,7 @@ public class baekjoon1495 {
                     flag = true;
                 }
             }
-            if (!flag){
+            if (!flag) {
                 System.out.println(-1);
                 return;
             }
@@ -49,8 +49,7 @@ public class baekjoon1495 {
         System.out.println(result);
 
     }
-
-
+    
 }
 
 
