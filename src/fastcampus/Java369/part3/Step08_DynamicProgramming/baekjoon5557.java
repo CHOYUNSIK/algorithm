@@ -32,7 +32,7 @@ public class baekjoon5557 {
         }
 
 
-        System.out.println(Dy[N -1][A[N]]);
+        System.out.println(Dy[N - 1][A[N]]);
     }
 
 

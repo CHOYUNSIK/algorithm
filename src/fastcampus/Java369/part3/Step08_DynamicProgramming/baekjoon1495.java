@@ -49,7 +49,7 @@ public class baekjoon1495 {
         System.out.println(result);
 
     }
-    
+
 }
 
 
