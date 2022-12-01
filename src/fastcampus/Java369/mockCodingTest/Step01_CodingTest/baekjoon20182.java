@@ -100,10 +100,10 @@ public class baekjoon20182 {
 
             if (cur.cost != d[cur.idx]) continue;
 
-            for (Info next : list[cur.idx]){
+            for (Info next : list[cur.idx]) {
                 if (next.cost > x) continue;
 
-                if (d[next.idx] > d[cur.idx] + next.cost){
+                if (d[next.idx] > d[cur.idx] + next.cost) {
                     d[next.idx] = d[cur.idx] + next.cost;
                     queue.add(new Info(next.idx, d[next.idx]));
                 }
