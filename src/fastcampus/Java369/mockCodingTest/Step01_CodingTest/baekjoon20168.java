@@ -1,12 +1,9 @@
-package fastcampus.Java369.mockCodingTest1.Step01_CodingTest;
+package fastcampus.Java369.mockCodingTest.Step01_CodingTest;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class baekjoon20168 {

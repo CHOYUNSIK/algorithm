@@ -1,21 +1,18 @@
-package fastcampus.Java369.mockCodingTest1.Step01_CodingTest;
+package fastcampus.Java369.mockCodingTest.Step01_CodingTest;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.StringTokenizer;
 
-public class baekjoon20167 {
+public class baekjoon20181_2 {
 
     static int N, K;
     static long[] arr;
     static long[] dy;
 
-    static long result;
-
     public static void main(String[] args) throws IOException {
+
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 
@@ -30,25 +27,36 @@ public class baekjoon20167 {
             arr[i] = Long.parseLong(st.nextToken());
         }
 
-        dfs20167(1, 0);
+        int right = 1;
+        long sum = 0, dyLeftMax = 0;
 
-        System.out.println(result);
-    }
+        for (int left = 1; left <= N; left++) {
+            dyLeftMax = Math.max(dyLeftMax, dy[left - 1]);
 
-    private static void dfs20167(int idx, long energy) {
-        result = Math.max(result, energy);
+            while (right <= N && sum < K) {
+                sum += arr[right++];
+            }
 
-
-        long sum = 0;
-        for (int i = idx; i <= N; i++) {
-            sum += arr[i];
             if (sum >= K) {
-                dfs20167(i + 1, energy + (sum - K));
+                dy[right - 1] = Math.max(dy[right - 1], dyLeftMax + (sum - K));
+            } else {
                 break;
             }
+
+            sum -= arr[left];
+
         }
 
-        if (idx < N) dfs20167(idx + 1, energy);
+        long result = 0;
+
+        for (int i = 1; i <= N; i++) {
+            result = Math.max(result, dy[i]);
+        }
+
+        System.out.println(result);
+
+
     }
+
 
 }

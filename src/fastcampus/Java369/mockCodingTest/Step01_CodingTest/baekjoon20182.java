@@ -1,4 +1,4 @@
-package fastcampus.Java369.mockCodingTest1.Step01_CodingTest;
+package fastcampus.Java369.mockCodingTest.Step01_CodingTest;
 
 import java.io.BufferedReader;
 import java.io.IOException;
