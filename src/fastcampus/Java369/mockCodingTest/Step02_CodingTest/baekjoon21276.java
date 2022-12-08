@@ -7,91 +7,91 @@ import java.util.*;
 
 public class baekjoon21276 {
 
-    static int N, M;
-    static String[] currentPerson;
-
-    static ArrayList<String> name = new ArrayList<>();
-    static HashMap<String, Integer> map = new HashMap<>();
-
 
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        N = Integer.parseInt(br.readLine());
+        int N = Integer.parseInt(br.readLine());
+        ArrayList<String> list = new ArrayList<>();
 
-        currentPerson = new String[N + 1];
         StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+        for (int i = 1; i <= N; i++) {
+            list.add(st.nextToken());
+        }
+        Collections.sort(list);
+
+
+        String[] currentPeople = new String[N + 1];
+        HashMap<String, Integer> map = new HashMap<>();
 
         for (int i = 1; i <= N; i++) {
-            name.add(st.nextToken());
+            currentPeople[i] = list.get(i - 1);
+            map.put(currentPeople[i], i);
         }
 
-        Collections.sort(name);
 
-        for (int i = 1; i <= N; i++) {
-            currentPerson[i] = name.get(i - 1);
-            map.put(name.get(i - 1), i);
-        }
-
-        M = Integer.parseInt(br.readLine());
-
-        int[] parentCount = new int[N + 1];
-        boolean[][] parentCheck = new boolean[N + 1][N + 1];
+        int M = Integer.parseInt(br.readLine());
+        int[] numberOfAncestors = new int[N + 1];
+        boolean[][] ancestralCheck = new boolean[N + 1][N + 1];
 
         for (int i = 1; i <= M; i++) {
             st = new StringTokenizer(br.readLine(), " ");
+            String str1 = st.nextToken();
+            String str2 = st.nextToken();
 
-            String a = st.nextToken();
-            String b = st.nextToken();
+            int u = map.get(str1);
+            int v = map.get(str2);
 
-            int u = map.get(a);
-            int v = map.get(b);
+            numberOfAncestors[u]++;
+            ancestralCheck[u][v] = true;
 
-            parentCount[u]++;
-            parentCheck[u][v] = true;
         }
 
-        ArrayList<String> supremeAncestor = new ArrayList<>();
+        ArrayList<String> familyEponyms = new ArrayList<>();
 
         for (int i = 1; i <= N; i++) {
-            if (parentCount[i] == 0) supremeAncestor.add(currentPerson[i]);
+            if (numberOfAncestors[i] == 0) familyEponyms.add(currentPeople[i]);
         }
 
-        int[] childCount = new int[N + 1];
+        int[] numberOfChild = new int[N + 1];
         boolean[][] childCheck = new boolean[N + 1][N + 1];
         for (int i = 0; i < N; i++) {
             int index = 1;
-            while (parentCount[index] > 0) index++;
+            while (numberOfAncestors[index] > 0) index++;
+
             for (int j = 1; j <= N; j++) {
-                if (parentCheck[j][index]) {
-                    parentCount[j]--;
-                    if (parentCount[j] == 0) {
-                        childCount[index]++;
+
+                if (ancestralCheck[j][index]){
+                    numberOfAncestors[j]--;
+
+                    if (numberOfAncestors[j] == 0){
+                        numberOfChild[index]++;
                         childCheck[index][j] = true;
                     }
+
                 }
+
+                numberOfAncestors[index] = 99999;
+
             }
 
-            parentCount[index] = 99999999;
         }
 
-
-        System.out.println(supremeAncestor.size());
-        for (String s : supremeAncestor) System.out.print(s + " ");
+        System.out.println(familyEponyms.size());
+        for (String s : familyEponyms){
+            System.out.print(s+" ");
+        }
         System.out.println();
 
-        for (int i = 1; i <= N; i++) {
-            System.out.print(currentPerson[i] + " " + childCount[i] + " ");
-
-            for (int j = 1; j <= N; j++) {
-                if (childCheck[i][j]) {
-                    System.out.print(currentPerson[j] + " ");
-                }
+        for (int i = 1; i <= N; i++){
+            System.out.print(currentPeople[i]+ " ");
+            System.out.print(numberOfChild[i] + " ");
+            for (int j = 1; j <= N; j++){
+                if (childCheck[i][j]) System.out.print(currentPeople[j]+ " ");
             }
             System.out.println();
         }
-
 
     }
 
