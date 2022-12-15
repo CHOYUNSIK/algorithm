@@ -43,15 +43,15 @@ public class baekjoon21279 {
         int ylim = 100000;
 
 
-        while (xlim <= 100000){
-            for (int i = 0; i < xx[xlim].size(); i++){
+        while (xlim <= 100000) {
+            for (int i = 0; i < xx[xlim].size(); i++) {
                 if (xx[xlim].get(i)[0] > ylim) continue;
                 curval += xx[xlim].get(i)[1];
                 curnum++;
             }
 
-            while (c < curnum){
-                for (int i = 0; i < yy[ylim].size(); i++){
+            while (c < curnum) {
+                for (int i = 0; i < yy[ylim].size(); i++) {
                     if (yy[ylim].get(i)[0] > xlim) continue;
                     curval -= yy[ylim].get(i)[1];
                     curnum--;

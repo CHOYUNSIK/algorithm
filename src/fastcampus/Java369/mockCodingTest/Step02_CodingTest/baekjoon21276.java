@@ -62,10 +62,10 @@ public class baekjoon21276 {
 
             for (int j = 1; j <= N; j++) {
 
-                if (ancestralCheck[j][index]){
+                if (ancestralCheck[j][index]) {
                     numberOfAncestors[j]--;
 
-                    if (numberOfAncestors[j] == 0){
+                    if (numberOfAncestors[j] == 0) {
                         numberOfChild[index]++;
                         childCheck[index][j] = true;
                     }
@@ -79,16 +79,16 @@ public class baekjoon21276 {
         }
 
         System.out.println(familyEponyms.size());
-        for (String s : familyEponyms){
-            System.out.print(s+" ");
+        for (String s : familyEponyms) {
+            System.out.print(s + " ");
         }
         System.out.println();
 
-        for (int i = 1; i <= N; i++){
-            System.out.print(currentPeople[i]+ " ");
+        for (int i = 1; i <= N; i++) {
+            System.out.print(currentPeople[i] + " ");
             System.out.print(numberOfChild[i] + " ");
-            for (int j = 1; j <= N; j++){
-                if (childCheck[i][j]) System.out.print(currentPeople[j]+ " ");
+            for (int j = 1; j <= N; j++) {
+                if (childCheck[i][j]) System.out.print(currentPeople[j] + " ");
             }
             System.out.println();
         }

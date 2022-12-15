@@ -73,11 +73,12 @@ public class baekjoon21277 {
 
     private static void rotation() {
         char[][] tmp = new char[n1][m1];
-        for(int i = 0; i < n1; i++) for(int j = 0; j < m1; j++) tmp[i][j] = arr1[i][j];
+        for (int i = 0; i < n1; i++) for (int j = 0; j < m1; j++) tmp[i][j] = arr1[i][j];
 
-        for(int i = 0; i < m1; i++) for(int j = 0; j < n1; j++){
-            arr1[i][j] = tmp[n1-1-j][i];
-        }
+        for (int i = 0; i < m1; i++)
+            for (int j = 0; j < n1; j++) {
+                arr1[i][j] = tmp[n1 - 1 - j][i];
+            }
 
 
     }
@@ -91,7 +92,7 @@ public class baekjoon21277 {
                 int idx1 = i + x;
                 int idx2 = j + y;
 
-                if(0 <= idx1 && idx1 < n2 && 0 <= idx2 && idx2 < m2 && arr2[idx1][idx2] == '1') return false;
+                if (0 <= idx1 && idx1 < n2 && 0 <= idx2 && idx2 < m2 && arr2[idx1][idx2] == '1') return false;
 
             }
         }
