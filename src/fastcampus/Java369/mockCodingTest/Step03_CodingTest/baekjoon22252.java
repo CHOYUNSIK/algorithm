@@ -10,10 +10,9 @@ import java.util.StringTokenizer;
 
 public class baekjoon22252 {
 
-
-    static int keyNum = 0;
-    static PriorityQueue<Integer>[] queues = new PriorityQueue[100005];
     static HashMap<String, Integer> map = new HashMap<>();
+    static PriorityQueue<Integer>[] queues = new PriorityQueue[100005];
+    static int keyNum = 0;
 
     public static void main(String[] args) throws IOException {
 
@@ -22,9 +21,10 @@ public class baekjoon22252 {
         int Q = Integer.parseInt(br.readLine());
 
         long result = 0;
-
         while (Q-- > 0) {
+
             StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+
             int kind = Integer.parseInt(st.nextToken());
             String name = st.nextToken();
 
@@ -42,16 +42,15 @@ public class baekjoon22252 {
                 }
             } else {
                 int b = Integer.parseInt(st.nextToken());
-
                 while (b-- > 0 && !queues[key].isEmpty()) {
-                    result += queues[key].poll();
+                    result+= queues[key].poll();
                 }
-
             }
 
         }
 
         System.out.println(result);
+
 
     }
 }
