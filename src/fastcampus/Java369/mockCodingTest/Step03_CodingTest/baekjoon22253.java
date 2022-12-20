@@ -8,13 +8,13 @@ import java.util.*;
 
 public class baekjoon22253 {
 
-
     static int N;
     static int[] a;
-    static ArrayList<Integer>[] tree;
     static int[][] dy;
+    static ArrayList<Integer>[] tree;
 
     static final int MOD = 1000000007;
+
 
     public static void main(String[] args) throws IOException {
 
@@ -25,10 +25,10 @@ public class baekjoon22253 {
         a = new int[N + 1];
         dy = new int[N + 1][10];
         tree = new ArrayList[N + 1];
+
         for (int i = 1; i <= N; i++) tree[i] = new ArrayList<>();
 
         StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-
         for (int i = 1; i <= N; i++) {
             a[i] = Integer.parseInt(st.nextToken());
         }
@@ -41,10 +41,10 @@ public class baekjoon22253 {
 
             tree[x].add(y);
             tree[y].add(x);
+
         }
 
         dfs22253(1, -1);
-
 
         int result = 0;
         for (int i = 0; i <= 9; i++) {
@@ -59,7 +59,8 @@ public class baekjoon22253 {
         dy[x][a[x]] = 1;
 
         for (int y : tree[x]) {
-            if (y == par) continue;
+            if (par == y) continue;
+
             dfs22253(y, x);
 
             for (int i = 0; i <= 9; i++) {
@@ -71,9 +72,10 @@ public class baekjoon22253 {
                 dy[x][a[x]] += dy[y][i];
                 dy[x][a[x]] %= MOD;
             }
-
         }
 
     }
+
+
 }
 
