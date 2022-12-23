@@ -100,7 +100,7 @@ public class baekjoon22255 {
 
                 dy[nx][ny][nmove] = ndist;
 
-                queue.add(new Info(nx, ny ,nmove, ndist));
+                queue.add(new Info(nx, ny, nmove, ndist));
 
             }
 
@@ -108,7 +108,7 @@ public class baekjoon22255 {
 
 
         int result = Integer.MAX_VALUE;
-        for (int i = 0; i < 3; i++){
+        for (int i = 0; i < 3; i++) {
             result = Math.min(result, dy[EX][EY][i]);
         }
 
