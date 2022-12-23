@@ -11,21 +11,17 @@ import java.util.StringTokenizer;
 public class baekjoon22255 {
 
 
-    static int N, M;
-    static int SX, SY;
-    static int EX, EY;
-
+    static int N, M, SX, SY, EX, EY;
     static int[][] a;
     static int[][][] dy;
 
     static int dir[][][] = {
             {{1, 0}, {-1, 0}},
             {{0, 1}, {0, -1}},
-            {{1, 0}, {0,  1}, {-1, 0}, {0, -1}}
+            {{1, 0}, {-1, 0}, {0, -1}, {0, 1}}
     };
 
     static class Info {
-
         int x, y, move, dist;
 
         public Info(int x, int y, int move, int dist) {
@@ -36,11 +32,9 @@ public class baekjoon22255 {
         }
     }
 
-
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
 
         StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 
@@ -67,51 +61,53 @@ public class baekjoon22255 {
         for (int i = 1; i <= N; i++) {
             for (int j = 1; j <= M; j++) {
                 for (int k = 0; k < 3; k++) {
+
                     dy[i][j][k] = Integer.MAX_VALUE;
+
                 }
             }
         }
 
         dy[SX][SY][0] = 0;
-        PriorityQueue<Info> queue = new PriorityQueue<>(Comparator.comparing(info -> info.dist));
-        queue.add(new Info(SX, SY, 0, 0));
 
+        PriorityQueue<Info> queue = new PriorityQueue<>(Comparator.comparing(info -> info.dist));
+
+        queue.add(new Info(SX, SY, 0, 0));
 
 
         while (!queue.isEmpty()) {
 
-            Info info = queue.poll();
+            Info poll = queue.poll();
 
-            int x = info.x;
-            int y = info.y;
-            int move = info.move;
-            int dist = info.dist;
+            int x = poll.x, y = poll.y, move = poll.move, dist = poll.dist;
 
             if (dist != dy[x][y][move]) continue;
 
-            int choise = move == 2 ? 4 : 2;
-            for (int k = 0; k < choise; k++) {
+            int choice = move == 2 ? 4 : 2;
+
+            for (int k = 0; k < choice; k++) {
 
                 int nx = x + dir[move][k][0];
                 int ny = y + dir[move][k][1];
 
-                if (nx < 1 || nx > N || ny < 1 || ny > M) continue;
+                if (nx < 0 || nx > N || ny < 0 || ny > M) continue;
                 if (a[nx][ny] == -1) continue;
 
                 int nmove = (move + 1) % 3;
                 int ndist = dist + a[nx][ny];
 
                 if (ndist >= dy[nx][ny][nmove]) continue;
+
                 dy[nx][ny][nmove] = ndist;
 
-                queue.add(new Info(nx, ny, nmove, ndist));
+                queue.add(new Info(nx, ny ,nmove, ndist));
 
             }
 
         }
 
-        int result = Integer.MAX_VALUE;
 
+        int result = Integer.MAX_VALUE;
         for (int i = 0; i < 3; i++){
             result = Math.min(result, dy[EX][EY][i]);
         }
@@ -120,8 +116,10 @@ public class baekjoon22255 {
 
         System.out.println(result);
 
+
     }
 
 
 }
+
 
