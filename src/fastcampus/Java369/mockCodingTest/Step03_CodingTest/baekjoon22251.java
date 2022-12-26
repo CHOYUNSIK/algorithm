@@ -55,7 +55,7 @@ public class baekjoon22251 {
 
         int n = 0;
 
-        for (int i = 1; i <= K; i++){
+        for (int i = 1; i <= K; i++) {
 
             n += numberOfConversions(x % 10, y % 10);
 

@@ -43,7 +43,7 @@ public class baekjoon22252 {
             } else {
                 int b = Integer.parseInt(st.nextToken());
                 while (b-- > 0 && !queues[key].isEmpty()) {
-                    result+= queues[key].poll();
+                    result += queues[key].poll();
                 }
             }
 
