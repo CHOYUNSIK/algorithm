@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
-public class baekjoon21929 {
+public class baekjoon21939 {
 
     static class Pair implements Comparable<Pair> {
         int fist;

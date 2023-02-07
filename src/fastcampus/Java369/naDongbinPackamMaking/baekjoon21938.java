@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
-public class baekjoon21928 {
+public class baekjoon21938 {
 
     static int N, M;
 
