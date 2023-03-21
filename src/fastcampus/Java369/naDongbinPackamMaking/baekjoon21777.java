@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
+
+// 해석좀
 public class baekjoon21777 {
 
     private static final int pidMax = 1000000;
