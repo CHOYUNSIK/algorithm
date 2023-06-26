@@ -25,25 +25,6 @@ public class Step1 {
 
 
 
-
-    private long getHolidays(int startDay, long n) {
-        long fullWeeks = n / 7;
-        long remainingDays = n % 7;
-
-        long holidays = fullWeeks * 2;
-
-        if (remainingDays > 0) {
-            if (startDay <= 6 && startDay + remainingDays >= 8) {
-                holidays += 2;
-            } else {
-                holidays += 1;
-            }
-        }
-
-        return holidays;
-    }
-
-
     public static void main(String[] args) {
         Step1 solution = new Step1();
         long n1 = 6;
