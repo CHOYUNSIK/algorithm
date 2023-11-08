@@ -21,22 +21,20 @@ public class Step4_1 {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        int p1 = 0 , p2 = 0;
+        int lt = 0;
 
-        int sum = 0, result = 0;
-        while (p1 < n){
-            sum += arr[p2++];
-            if (sum == m){
-                p1++;
-                p2 = p1;
-                result++;
-                continue;
-            }else if (sum > m){
-                p1++;
-                p2 = p1;
-                continue;
+        int sum = 0, cnt = 0;
+
+        for (int rt = 0; rt < n; rt++) {
+            sum += arr[rt];
+            if (sum == m) cnt++;
+            while (sum >= m){
+                sum -= arr[lt++];
+                if (sum == m) cnt++;
             }
-        };
+        }
+
+        System.out.println(cnt);
 
     }
 }
