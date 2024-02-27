@@ -18,6 +18,25 @@ public class Step3_1 {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
+
+        for (int i = 1; i < n; i++) {
+            int temp = arr[i], j;
+
+            for (j = i - 1; j >= 0; j--) {
+                if (temp < arr[j]) {
+                    arr[j + 1] = arr[j];
+                } else {
+                    break;
+                }
+            }
+
+            arr[j + 1] = temp;
+        }
+
+        for (int x : arr) {
+            System.out.print(x + " ");
+        }
+
     }
 
 }
