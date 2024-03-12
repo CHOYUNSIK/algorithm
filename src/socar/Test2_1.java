@@ -1,44 +1,54 @@
 package socar;
 
 public class Test2_1 {
-    static int minSwap = Integer.MAX_VALUE;
+    private int minSwap = Integer.MAX_VALUE;
 
-    public static int solution(int[] numbers, int k) {
-        permute(numbers, 0, k);
+    public int solution(int[] numbers, int k) {
+        minSwap = Integer.MAX_VALUE;
+        permute(numbers, 0, k, 0);
         return minSwap == Integer.MAX_VALUE ? -1 : minSwap;
     }
 
-    private static void permute(int[] arr, int start, int k) {
-        if (start == arr.length) {
-            checkAndSetMinSwaps(arr, k);
+    private void permute(int[] arr, int l, int k, int swapCount) {
+        if (isKDiff(arr, k)) {
+            minSwap = Math.min(minSwap, swapCount);
             return;
         }
-        for (int i = start; i < arr.length; i++) {
-            swap(arr, start, i);
-            permute(arr, start + 1, k);
-            swap(arr, start, i); // backtrack
+        if (l == arr.length) return;
+        for (int i = l; i < arr.length; i++) {
+            swap(arr, l, i);
+            permute(arr, l + 1, k, l == i ? swapCount : swapCount + 1);
+            swap(arr, l, i); // backtrack
         }
     }
 
-    private static void checkAndSetMinSwaps(int[] arr, int k) {
+    private boolean isKDiff(int[] arr, int k) {
         for (int i = 0; i < arr.length - 1; i++) {
             if (Math.abs(arr[i] - arr[i + 1]) > k) {
-                return; // 조건 불만족
+                return false;
             }
         }
-        // 여기서 arr의 swap 횟수 계산 필요
-        // 주어진 배열의 길이와 제한된 swap 연산으로는 직접적인 계산 불가능하여, 문제 설명의 오류로 보임
-        // 이론적으로는 초기 배열과 비교하여 최소 변경 횟수를 추정할 수 있지만, 주어진 문제 조건 내에서는 구현 불가
+        return true;
     }
 
-    private static void swap(int[] arr, int i, int j) {
+    private void swap(int[] arr, int i, int j) {
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
     }
 
     public static void main(String[] args) {
-        System.out.println(solution(new int[]{10, 40, 30, 20}, 20)); // 1
-        System.out.println(solution(new int[]{3, 7, 2, 8, 6, 4, 5, 1}, 3)); // 2
+        Test2_1 solution = new Test2_1();
+
+        // 입력 예 #1
+        int[] numbers1 = {10, 40, 30, 20};
+        int k1 = 20;
+        System.out.println("입력 예 #1 결과: " + solution.solution(numbers1, k1));
+
+
+        // 입력 예 #2
+        int[] numbers2 = {3, 7, 2, 8, 6, 4, 5, 1};
+        int k2 = 3;
+        System.out.println("입력 예 #2 결과: " + solution.solution(numbers2, k2));
     }
 }
