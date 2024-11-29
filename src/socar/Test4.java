@@ -90,6 +90,9 @@ tickets                         | roll | shop                                   
 
 * */
 public class Test4 {
+    // 티켓 가격 정보를 저장할 맵
+
+
     public static void main(String[] args) {
         // 테스트 케이스 예시
         String[] tickets1 = {"A 1", "B 2", "C 5", "D 3"};
@@ -119,43 +122,40 @@ public class Test4 {
         System.out.println("Result 4: " + new Test4().solution(tickets4, roll4, shop4, money4));
     }
 
-    public int solution(String[] tickets, int roll, String[][] shop, int money) {
-        // 티켓 가격 정보 매핑
+    public static int solution(String[] tickets, int roll, String[][] shop, int money) {
         Map<String, Integer> ticketPrices = new HashMap<>();
-        for (String ticket : tickets) {
-            String[] parts = ticket.split(" ");
+        for (String ticketInfo : tickets) {
+            String[] parts = ticketInfo.split(" ");
             ticketPrices.put(parts[0], Integer.parseInt(parts[1]));
         }
 
-        // 최대 황금 티켓 수를 저장할 변수
         int maxGoldTickets = 0;
 
-        // 상점 새로고침 비용 고려
-        for (int refresh = 0; refresh < shop.length && refresh * roll <= money; refresh++) {
-            int currentMoney = money - refresh * roll; // 새로고침 후 남은 자금
-            Map<String, Integer> ticketCounts = new HashMap<>();
+        // 초기 자금에서 새로고침 비용을 빼고 시작합니다.
+        // 모든 상점을 순회합니다.
+        for (int i = 0; i < shop.length && money >= roll; i++) {
+            // 상점을 새로고침할 때마다 비용이 듭니다. 첫 상점은 새로고침 비용이 없습니다.
+            if (i > 0) {
+                money -= roll;
+            }
 
-            // 해당 상점 상태에서 구매 가능한 티켓 수집
-            for (int s = 0; s <= refresh; s++) {
-                for (String ticket : shop[s]) {
-                    int cost = ticketPrices.get(ticket);
-                    if (currentMoney >= cost) {
-                        currentMoney -= cost;
-                        ticketCounts.put(ticket, ticketCounts.getOrDefault(ticket, 0) + 1);
-                    }
+            // 현재 상점에서 구매할 수 있는 최대 황금 티켓 수를 계산합니다.
+            Map<String, Integer> ticketCounts = new HashMap<>();
+            for (String ticket : shop[i]) {
+                if (money >= ticketPrices.get(ticket)) {
+                    ticketCounts.put(ticket, ticketCounts.getOrDefault(ticket, 0) + 1);
+                    money -= ticketPrices.get(ticket); // 티켓 구매에 사용된 금액을 빼줍니다.
                 }
             }
 
-            // 황금 티켓으로 교환
-            int goldTickets =0;
-            for (Integer count : ticketCounts.values()) {
-                goldTickets += count / 3;
+            // 황금 티켓으로 교환합니다.
+            for (Map.Entry<String, Integer> entry : ticketCounts.entrySet()) {
+                maxGoldTickets += entry.getValue() / 3; // 3개의 일반 티켓으로 1개의 황금 티켓을 얻습니다.
             }
-
-            // 최대값 갱신
-            maxGoldTickets = Math.max(maxGoldTickets, goldTickets);
         }
 
         return maxGoldTickets;
     }
+
+
 }
