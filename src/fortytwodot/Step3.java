@@ -48,7 +48,6 @@ public class Step3 {
         Step3 sol = new Step3();
         int n = 8, a = 4, b = 7;
         int answer = sol.solution(n, a, b);
-        i
         System.out.println("경쟁자와 만나는 라운드: " + answer);  // 예상 출력: 3
     }
 
